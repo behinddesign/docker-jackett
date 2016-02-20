@@ -2,7 +2,7 @@ FROM gliderlabs/alpine:latest
 
 MAINTAINER guillaumeGL <guillaume.lebeau@outlook.com>
 
-ENV VERSION 0.6.8
+ENV VERSION 0.7.181
 
 # Update the package list
 RUN apk update
@@ -11,9 +11,9 @@ RUN apk update
 RUN apk add curl tar bzip2
 RUN apk add mono --update-cache --repository http://alpine.gliderlabs.com/alpine/edge/testing/ --allow-untrusted
 
-RUN curl -L https://jackett.net/Download/v${VERSION}/Jackett.Mono.v${VERSION}.tar.bz2 -o /tmp/jackett.tar.bz2
+RUN curl -L http://github.com/Jackett/Jackett/releases/download/v${VERSION}/Jackett.Binaries.Mono.tar.gz -o /tmp/jackett.tar.gz
 RUN mkdir -p /tmp/jackett
-RUN tar -jxvf /tmp/jackett.tar.bz2 -C /tmp/jackett
+RUN tar -zxvf /tmp/jackett.tar.gz -C /tmp/jackett
 RUN mkdir -p /data/app
 RUN mv /tmp/jackett/Jackett /data/app
 RUN chown -R nobody:users /data/app

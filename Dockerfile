@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:latest
+FROM gliderlabs/alpine:3.3
 
 MAINTAINER guillaumeGL <guillaume.lebeau@outlook.com>
 

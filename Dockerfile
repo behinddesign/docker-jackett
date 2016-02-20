@@ -9,7 +9,7 @@ RUN apk update
 
 # Install all needed packages. Tar+Bzip2 to uncompress Jackett archive and libcurl+Mono as dependencies to Jackett
 RUN apk add curl tar bzip2
-RUN apk add mono --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/testing/x86/ --allow-untrusted
+RUN apk add mono --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
 
 RUN curl -L http://github.com/Jackett/Jackett/releases/download/v${VERSION}/Jackett.Binaries.Mono.tar.gz -o /tmp/jackett.tar.gz
 RUN mkdir -p /tmp/jackett
